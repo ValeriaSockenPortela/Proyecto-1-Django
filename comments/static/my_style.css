@@ -1,0 +1,6 @@
+html[data-theme="light"], :root {
+    --primary: #ff0000;
+    --secondary: #a70c0c;
+    --link-fg: #b84040;
+    --link-select-fg: #00ff2a;
+}
