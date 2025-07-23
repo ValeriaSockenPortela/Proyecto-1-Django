@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/admin/css/forms.css">
+    <script src="/admin/jsi18n/"></script>
+    <script src="/static/admin/js/core.js"></script>
+    {{ form.media }}
+</head>
+<body>
+    <form action="" method="POST">
+        {{ form.other.as_field_group }}
+        {{ form.calendar }}
+        {% autoescape off %}
+            {{ form.custom }}
+        {% endautoescape %}
+
+        {% csrf_token %}
+        <button type="submit">Enviar</button>
+    </form>
+<div class="group"><img src=""></div>
+</body>
+</html>

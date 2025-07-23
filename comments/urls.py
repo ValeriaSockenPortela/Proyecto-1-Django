@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import add, index, update, delete
-
+from .views import index, add, update, delete, contact
 app_name = 'comments'
 urlpatterns = [
-    path('/add/', add, name='add'),
+    path('add/', add, name='add'),
+    path('contact/', contact, name='contact'),
     path('', index, name='index'),
-    path('/update/<int:pk>/', update, name='update'),
-    path('/delete/<int:pk>/', delete, name='delete')
+    path('update/<int:pk>/', update, name='update'),
+    path('delete/<int:pk>/', delete, name='delete')
 ]

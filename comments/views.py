@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from django.core.paginator import Paginator
 from django.http import Http404
 from .models import Comment
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
+
 
 # Create your views here.
 
@@ -43,3 +44,9 @@ def delete(request, pk):
         comment.delete()
         return redirect('comments:index')
     return redirect('comments:index')
+
+
+def contact(request):
+    form = ContactForm()
+    print(form.media)
+    return render(request, 'comments/contact.html',{'form':form})

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <a href="{% url 'elements:add' %}">Add</a>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+      {% for e in elements %}
+        <tr>
+          <td>{{ e.title }}</td>
+          <td>{{ e.category.title }}</td>
+          <td>{{ e.type.title }}</td>
+          <td>{{ e.price }}</td>
+          <td>{{ e.created }}</td>
+          <td>
+            <!-- Puedes agregar acciones aquí como editar o eliminar -->
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <nav>
+        <ul class="paginations justify-content-center">
+          {% if elements.has_previous %}
+            <li class="page-item">
+              <a href="?page={{ elements.previus_page_number">Prev</a>
+            </li>
+          {% endif %}
+          <li class="page-item">
+            {% for i in elements.paginator.page_range %}
+              {% if elements.number == i %}
+                <a href="?page={{ i }}" class="page-link active">
+                  {{ i }}
+                </a>
+              {% else %}
+                <a href="?page= {{ i }}" class="page-link">
+                  {{ i }}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </li>
+          {% if elements.has_next %}
+            <li class="page-item">
+              <a href="?page={{ elements.next_page_number }}" class="page-link">Next</a>
+            </li>
+          {% endif %}
+        </ul>
+    </nav>
+</body>
+</html>
