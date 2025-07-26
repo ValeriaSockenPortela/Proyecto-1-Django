@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <a href="{% url 'comments:index' %}">Volver</a>
     <H1>Página de Agregar Comentarios</H1>
+    {{ comment.date_posted|date:"D d M Y" }}
+    {% with date=comment.date_posted %}
+        --{{date}}--
+    {% endwith %}
+    {% include "partials/errors-form.html" %}
     <form action="" method="POST">
         {{ form.text }}
         {% csrf_token %}
         <button type="submit">Enviar</button>
     </form>
-</body>
-</html>
+{% endblock %}

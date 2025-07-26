@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h3>Filtros</h3>
+
+  {% load custom_tags %}
+
+
+  <p>{% now "jS F Y H:i" %}</p>
+  <p>{{ "SoKeN"|lower }}</p>
+  <p>{{ "SoKeN"|upper }}</p>
+  <p>{{ 5 |add:"6" }}</p>
+  {% for a in array %}
+    <div class="{% cycle 'row1' 'row2' %} other">
+    </div>
+  {% endfor %}
+  <p>{{ other|default:'nothing' }}</p>
+  <p>{{ array|length }}</p>
+  {{'<button type="button">Send</button>'}}
+  {{ contentHTML }}
+  {{'<button type="button">Send</button>'|safe}}
+  <p>{{ array|join:" - "}}</p>
+  <p>{{ "Valeria"|my_name}}</p>
+
+</body>
+</html>

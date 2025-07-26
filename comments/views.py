@@ -35,7 +35,7 @@ def update(request, pk):
             return redirect('comments:index')
     else:
         form = CommentForm(instance=comment)
-    return render(request, 'comments/add.html', {'form': form})
+    return render(request, 'comments/add.html', {'form': form, "comment":comment})
 
 def delete(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
@@ -50,3 +50,7 @@ def contact(request):
     form = ContactForm()
     print(form.media)
     return render(request, 'comments/contact.html',{'form':form})
+
+def filter(request):
+    contentHTML = '<button type="button">Send</button>'
+    return render(request, 'comments/filter.html', { 'array': [1,2,3,4,5,6], 'contentHTML':contentHTML})
