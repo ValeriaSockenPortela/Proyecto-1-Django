@@ -10,7 +10,7 @@ class CommentAdmin(admin.ModelAdmin):
     #list_filter = ('id', 'date_posted')
     #list_editable = ('text',)
     #fields = ('text',)
-    exclude = ('element',)
+    #exclude = ('element',)
 
     # class Media:
     #     css = {
@@ -26,5 +26,5 @@ class CommentAdmin(admin.ModelAdmin):
     #     super().save_model(request, obj, form, change)
 
 #admin.site.register(Comment, CommentAdmin)
-
+    pass
 
